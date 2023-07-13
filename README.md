@@ -2,7 +2,7 @@
 Command Line Web-Scraper Assistant
 
 # Normal Installation (Script)
-Clone this Github Repo `https://github.com/Being-RAYtastic/Empo.git`
+Clone this Github Repo `git clone https://github.com/Being-RAYtastic/Empo.git`
 Paste the following code
 ```
 cd Empo  
