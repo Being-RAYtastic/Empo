@@ -17,6 +17,9 @@ def getMainBoxResult(query):
     #! The mainBox class -> "BNeawe"
     result = soup.find("div", class_='BNeawe').text
 
+    if ".com" in result:
+        return
+    
     return print(result)
 
 
