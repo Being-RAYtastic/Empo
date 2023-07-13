@@ -1,4 +1,3 @@
-import sys
 import argparse
 
 import features.getMainBoxResult as getMainBoxResult
