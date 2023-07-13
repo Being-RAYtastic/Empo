@@ -11,13 +11,23 @@ sudo chmod +x main.py
 ./install.sh
 ```
 After this you'll be able to use Empo
-# Installation - Dev
+# Temporary Installation (Dev)
 - Install the following dependencies (Python Modules using pip)
     ```
     pip install beautifulsoup4 requests argparse
     ```
 
-# To Use - Dev
 - Open your terminal in the directory where the project's `main.py` is present
 - In terminal paste the following `alias empo='python3 main.py'`
+
 - Now write your queries like this `empo "who is linus tolvards"` or maybe you can ask `empo "weather of delhi"`
+
+# Use
+- Try
+    ```
+    empo "weather of tokyo"
+
+- `-s` or `--short` flag for short answers:
+    ```
+    empo "elon musk's birthday" -s
+    ```

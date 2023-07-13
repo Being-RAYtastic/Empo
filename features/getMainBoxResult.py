@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 It scrapes the info that comes on the main page of the google
 '''
 
-
 def getMainBoxResult(query):
     url = f"https://google.com/search?q={query}"
 
@@ -19,3 +18,7 @@ def getMainBoxResult(query):
     result = soup.find("div", class_='BNeawe').text
 
     return print(result)
+
+getMainBoxResult("bday of linus tolvards")
+
+
