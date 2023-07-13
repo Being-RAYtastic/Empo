@@ -1,6 +1,16 @@
 # Empo
 Command Line Web-Scraper Assistant
 
+# Normal Installation (Script)
+Clone this Github Repo `https://github.com/Being-RAYtastic/Empo.git`
+Paste the following code
+```
+cd Empo  
+sudo chmod +x install.sh
+sudo chmod +x main.py  
+./install.sh
+```
+After this you'll be able to use Empo
 # Installation - Dev
 - Install the following dependencies (Python Modules using pip)
     ```
