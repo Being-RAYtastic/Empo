@@ -22,7 +22,6 @@ if __name__ == '__main__':
             getMainBoxResult.getMainBoxResult(query)
         else : 
             getSideBoxResult.getSideBoxResult(query)
-            getMainBoxResult.getMainBoxResult(query)
     
     except AttributeError:
         getMainBoxResult.getMainBoxResult(query)
