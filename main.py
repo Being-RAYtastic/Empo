@@ -20,8 +20,9 @@ if __name__ == '__main__':
     try:
         if shortAns==True:
             getMainBoxResult.getMainBoxResult(query)
-        else : 
+        elif shortAns==False: 
             getSideBoxResult.getSideBoxResult(query)
+
     
     except AttributeError:
         getMainBoxResult.getMainBoxResult(query)

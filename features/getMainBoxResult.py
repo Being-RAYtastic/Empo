@@ -19,6 +19,6 @@ def getMainBoxResult(query):
 
     return print(result)
 
-getMainBoxResult("bday of linus tolvards")
+
 
 
