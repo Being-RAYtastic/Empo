@@ -26,7 +26,7 @@ def getMainBoxResult(query):
     result = soup.find("div", class_='BNeawe').text
 
     if any(domain in result for domain in domain_names ):
-        # will return nothing if any of the domain_name from domain_names[] is present
+        # It will return nothing if any of the domain_name from domain_names[] is present
         return
     
     return print(result)
