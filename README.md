@@ -6,8 +6,8 @@ Clone this Github Repo `git clone https://github.com/Being-RAYtastic/Empo.git`
 Paste the following code
 ```
 cd Empo  
-sudo chmod +x install.sh
-sudo chmod +x main.py  
+chmod +x install.sh
+chmod +x main.py  
 ./install.sh
 ```
 After this you'll be able to use Empo
