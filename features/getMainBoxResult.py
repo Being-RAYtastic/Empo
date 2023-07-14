@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 '''
 It scrapes the info that comes on the main page of the google
 '''
-domain_names = [
+excluded_words = [
     ".com",
     ".org",
     ".in",
@@ -12,6 +12,8 @@ domain_names = [
     ".int",
     ".gov",
     ".edu",
+    "See results about",
+    "|"
 ]
 def getMainBoxResult(query):
     url = f"https://google.com/search?q={query}"
@@ -25,12 +27,8 @@ def getMainBoxResult(query):
     #! The mainBox class -> "BNeawe"
     result = soup.find("div", class_='BNeawe').text
 
-    if any(domain in result for domain in domain_names ):
-        # It will return nothing if any of the domain_name from domain_names[] is present
+    if any(excluded_word in result for excluded_word in excluded_words ):
+        # It will return nothing if any of the excluded_name from excluded_words[] is present
         return
     
     return print(result)
-
-
-
-
