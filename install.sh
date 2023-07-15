@@ -5,7 +5,7 @@ projectDir=$PWD
 
 # installs dependencies
 echo -e "\033[0;32mInstalling Dependencies...\033[0m"
-pip install beautifulsoup4 requests argparse --break-system-packages
+pip install -r requirements.txt --break-system-packages
 
 # alias command to register in $SHELLrc file
 empo_cmd="alias empo='python3 $projectDir/main.py'"
