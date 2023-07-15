@@ -4,6 +4,7 @@
 projectDir=$PWD
 
 # installs dependencies
+echo -e "\033[0;32mInstalling Dependencies...\033[0m"
 pip install beautifulsoup4 requests argparse --break-system-packages
 
 # alias command to register in $SHELLrc file
@@ -21,5 +22,6 @@ shell_rc_file=${nonModified_default_shell_rc_file/$replace_str/""}
 # Registers the alias
 echo $empo_cmd >> $shell_rc_file
 
-echo "Successfully installed empo!"
+echo -e "\033[0;32mSuccessfully installed empo!\033[0m"
 exec $SHELL
+exit 0
