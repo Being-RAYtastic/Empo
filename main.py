@@ -8,10 +8,11 @@ parser = argparse.ArgumentParser()
 # arguments
 parser.add_argument("query")    
 parser.add_argument("-s", "--short", action="store_true")
-
+parser.add_argument("-e", "--engine", choices=["google", "duckduckgo"])
 args = parser.parse_args()
 
 shortAns = args.short   # -s or --short argument
+search_engine = args.engine
 query = str(args.query).lower()
 # query = input("Ask: ").lower()
 
@@ -19,10 +20,10 @@ if __name__ == '__main__':
         
     try:
         if shortAns==True:
-            getMainBoxResult.getMainBoxResult(query)
+            getMainBoxResult.getMainBoxResult(query, search_engine)
         else:
-            getSideBoxResult.getSideBoxResult(query)
-            getMainBoxResult.getMainBoxResult(query)
+            getSideBoxResult.getSideBoxResult(query, search_engine)
+            getMainBoxResult.getMainBoxResult(query, search_engine)
 
 
     
