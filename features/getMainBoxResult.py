@@ -43,5 +43,8 @@ def getMainBoxResult(query, search_engine="google"):
     elif search_engine == "duckduckgo":
         with DDGS() as ddgs:
             for r in ddgs.answers(query):
-                return print(r)
+                try: 
+                    return print(r["text"])
+                except Exception:
+                    return print(r)
 

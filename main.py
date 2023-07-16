@@ -18,6 +18,8 @@ query = str(args.query).lower()
 if __name__ == '__main__':
         
     try:
+        if search_engine == "duckduckgo":
+            print( "\033[1;33m" + "DuckDuckGo Option is on Beta, Please report any bugs" + "\033[0m")
         if shortAns==True:
             getMainBoxResult.getMainBoxResult(query, search_engine)
         else:
