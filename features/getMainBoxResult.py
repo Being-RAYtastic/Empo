@@ -14,7 +14,8 @@ excluded_words = [
     ".gov",
     ".edu",
     "See results about",
-    "|"
+    "|",
+    "Wikipedia"
 ]
 def getMainBoxResult(query, search_engine="google"):
     if search_engine == None:
