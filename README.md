@@ -31,3 +31,7 @@ After this you'll be able to use Empo
     ```
     empo "elon musk's birthday" -s
     ```
+- `-e {google,duckduckgo}` or `--engine {google,duckduckgo}` to change the search engine used::
+    ```
+    empo "elon musk's birthday" -e duckduckgo
+    ```
