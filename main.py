@@ -12,9 +12,8 @@ parser.add_argument("-e", "--engine", choices=["google", "duckduckgo"])
 args = parser.parse_args()
 
 shortAns = args.short   # -s or --short argument
-search_engine = args.engine
+search_engine = args.engine    # -e or --engine argument: choices(google, duckduckgo)
 query = str(args.query).lower()
-# query = input("Ask: ").lower()
 
 if __name__ == '__main__':
         
@@ -29,7 +28,7 @@ if __name__ == '__main__':
     
     except AttributeError:
         getMainBoxResult.getMainBoxResult(query)
-        pass
+        
     except Exception as e:
         print("No Result!") 
                 

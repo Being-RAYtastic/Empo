@@ -7,10 +7,11 @@ It scrapes the info that is shown in the right side card/box of the google
 '''
 
 
-def getSideBoxResult(query, search_engine = "google"):
+def getSideBoxResult(query, search_engine="google"):
     if search_engine == None:
         # Sets the default searchengine 
         search_engine = "google"
+    
     if search_engine == "google":
         url = "https://www.google.com/search"
         params = {
@@ -32,10 +33,11 @@ def getSideBoxResult(query, search_engine = "google"):
         result = soup.select_one(".kno-rdesc span").text
 
         return print(result)
-    if search_engine == "duckduckgo":
+    
+    elif search_engine == "duckduckgo":
         with DDGS() as ddgs:
             ddgs_gen = ddgs.text(query)
             res = []
             for r in ddgs_gen:
                 res.append(r)
-            print(res[0]["body"])
+            return print(res[0]["body"])
