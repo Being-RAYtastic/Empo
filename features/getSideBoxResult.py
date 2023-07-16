@@ -36,8 +36,10 @@ def getSideBoxResult(query, search_engine="google"):
     
     elif search_engine == "duckduckgo":
         with DDGS() as ddgs:
-            ddgs_gen = ddgs.text(query)
+            ddgs_gen = ddgs.text(query, backend="lite")
             res = []
             for r in ddgs_gen:
                 res.append(r)
+            # if r == None:
+                # return print("No Result :'(")
             return print(res[0]["body"])
