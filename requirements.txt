@@ -1,0 +1,4 @@
+ddgs==9.14.4
+litellm==1.89.2
+python-dotenv==1.2.2
+questionary==2.1.1

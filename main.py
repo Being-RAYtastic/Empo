@@ -1,36 +1,50 @@
-import argparse
+from dotenv import load_dotenv
+import sys
+import os
+import litellm
 
-import features.getMainBoxResult as getMainBoxResult
-import features.getSideBoxResult as getSideBoxResult
+# CUSTOM IMPORTS
+from commands.config import run_config
+from commands.help import run_help
+from commands.empo_respond import question_response
 
-parser = argparse.ArgumentParser()
+CONFIG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env.empo")
+litellm.suppress_debug_info = True
 
-# arguments
-parser.add_argument("query")    
-parser.add_argument("-s", "--short", action="store_true")
-parser.add_argument("-e", "--engine", choices=["google", "duckduckgo"])
-args = parser.parse_args()
 
-shortAns = args.short   # -s or --short argument
-search_engine = args.engine    # -e or --engine argument: choices(google, duckduckgo)
-query = str(args.query).lower()
 
-if __name__ == '__main__':
-        
-    try:
-        if search_engine == "duckduckgo":
-            print( "\033[1;33m" + "DuckDuckGo Option is on Beta, Please report any bugs" + "\033[0m")
-        if shortAns==True:
-            getMainBoxResult.getMainBoxResult(query, search_engine)
+if __name__ == "__main__":
+    load_dotenv(CONFIG_FILE, override=True)
+
+    # if no provider set, run config first
+    if not os.getenv("PROVIDER"):
+        run_config(CONFIG_FILE)
+        load_dotenv(CONFIG_FILE, override=True)
+
+    if len(sys.argv) > 1:
+        question = " ".join(sys.argv[1:])  # joins all words after "empo", " " means it will put a space between each word.
+
+        if question == "--config":
+            run_config(CONFIG_FILE)
+
+        elif question == "--help":
+            run_help()
+     
         else:
-            getSideBoxResult.getSideBoxResult(query, search_engine)
-            getMainBoxResult.getMainBoxResult(query, search_engine)
-
-
+            try: 
+                answer = question_response(question)
+                print(answer)
+            except Exception as e:
+                error = str(e)
     
-    except AttributeError:
-        getMainBoxResult.getMainBoxResult(query)
-        
-    except Exception as e:
-        print("No Result!") 
-                
+                if "API key" in error or "api key" in error or "authentication" in error.lower():
+                    print("Invalid or missing API key. Run 'empo --config' to update it.")
+                elif "429" in error or "rate limit" in error.lower() or "quota" in error.lower():
+                    print("Rate limit hit. Wait a moment and try again.")
+                elif "connection" in error.lower() or "network" in error.lower():
+                    print("No internet connection. Check your network and try again.")
+                else:
+                    print("Something went wrong. Run 'empo --config' to reconfigure.")
+
+    else:
+        print("Type 'empo --help'")

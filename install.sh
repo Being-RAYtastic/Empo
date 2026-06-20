@@ -1,24 +1,24 @@
-#/bin/sh
+#!/usr/bin/env bash
 
 # Code to get the dir path properly
 projectDir=$PWD
 
 # installs dependencies
 echo -e "\033[0;32mInstalling Dependencies...\033[0m"
-pip install beautifulsoup4 requests argparse duckduckgo-search --break-system-packages
+
+python3 -m venv venv
+venv/bin/pip install -r requirements.txt
 
 # alias command to register in $SHELLrc file
-empo_cmd="alias empo='python3 $projectDir/main.py'"
+empo_cmd="alias empo='$projectDir/venv/bin/python $projectDir/main.py'"
 
 # Getting the $SHELLrc file (.bashrc or .zshrc or etc.) - Default Shell
-nonModified_default_shell_rc_file="$HOME/."
-nonModified_default_shell_rc_file+=$SHELL 
-nonModified_default_shell_rc_file+="rc"
-
-replace_str="/bin/"
-shell_rc_file=${nonModified_default_shell_rc_file/$replace_str/""}
+shell_name=$(basename $SHELL)
+shell_rc_file="$HOME/.${shell_name}rc"
 
 
+# remove old alias if exists, then add new one
+sed -i '/alias empo=/d' "$shell_rc_file"
 # Registers the alias
 echo $empo_cmd >> $shell_rc_file
 
