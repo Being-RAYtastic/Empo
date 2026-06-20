@@ -94,7 +94,7 @@ empo --help
 >
 > ✅ `empo "what is recursion?"`
 >
-> ❌ `empo what is recursion`
+> ❌ `empo what is recursion?`
 
 ---
 
