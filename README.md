@@ -65,8 +65,8 @@ empo --config
 You'll get an interactive prompt to select your provider and enter your API key.
 
 Getting a free API key:
-- **Gemini**: [aistudio.google.com](https://aistudio.google.com) (free, no credit card)
-- **Groq**: [console.groq.com](https://console.groq.com) (free, no credit card)
+- **Gemini**: [aistudio.google.com](https://aistudio.google.com)
+- **Groq**: [console.groq.com](https://console.groq.com)
 
 ---
 
